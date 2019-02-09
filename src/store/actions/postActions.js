@@ -21,3 +21,39 @@ export const createPost = post => {
       });
   };
 };
+
+export const deletePost = (id, history) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // asyns call
+    const firestore = getFirestore();
+    firestore
+      .collection("posts")
+      .doc(id)
+      .delete()
+      .then(() => {
+        dispatch({ type: "DELETE_POST", id });
+        history.push("/");
+      })
+      .catch(err => {
+        dispatch({ type: "CDELETE_POST_ERROR", err });
+      });
+  };
+};
+
+export const editPost = (id, post, history) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    // asyns call
+    const firestore = getFirestore();
+    firestore
+      .collection("posts")
+      .doc(id)
+      .update(post)
+      .then(() => {
+        dispatch({ type: "EDIT_POST", id });
+        history.push("/");
+      })
+      .catch(err => {
+        dispatch({ type: "EDIT_POST_ERROR", err });
+      });
+  };
+};

@@ -6,6 +6,7 @@ import PostDetails from "./components/Posts/PostDetails";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 import CreatePost from "./components/Posts/CreatePost";
+import EditPost from "./components/Posts/EditPost";
 
 class App extends Component {
   render() {
@@ -15,10 +16,11 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Dashboard} />
-            <Route path="/post/:id" component={PostDetails} />
+            <Route exact path="/post/:id" component={PostDetails} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
             <Route path="/createpost" component={CreatePost} />
+            <Route path="/post/edit/:id" component={EditPost} />
           </Switch>
         </div>
       </BrowserRouter>

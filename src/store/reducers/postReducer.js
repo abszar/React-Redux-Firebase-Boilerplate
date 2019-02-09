@@ -1,25 +1,4 @@
-const initState = {
-  posts: [
-    {
-      id: "1",
-      title: "Title",
-      content:
-        "this is the content of the post that will be shown in the index by the reducer"
-    },
-    {
-      id: "2",
-      title: "Seconde Title",
-      content:
-        "this is the content of the post that will be shown in the index by the reducer"
-    },
-    {
-      id: "3",
-      title: "Third Title",
-      content:
-        "this is the content of the post that will be shown in the index by the reducer"
-    }
-  ]
-};
+const initState = {};
 
 const postReducer = (state = initState, action) => {
   switch (action.type) {
@@ -27,7 +6,19 @@ const postReducer = (state = initState, action) => {
       console.log("post created", action.post);
       return state;
     case "CREATE_POST_ERROR":
-      console.log("create ost error", action.err);
+      console.log("create post error", action.err);
+      return state;
+    case "DELETE_POST":
+      console.log("post deleted", action.id);
+      return state;
+    case "CDELETE_POST_ERROR":
+      console.log("create post error", action.err);
+      return state;
+    case "EDIT_POST":
+      console.log("post edited", action.id);
+      return state;
+    case "EDIT_POST_ERROR":
+      console.log("edit post error", action.err);
       return state;
     default:
       return state;
