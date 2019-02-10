@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A Boilerplate to quickly start your application with React/Redux and Firebase, from the basic connections/CRUD and authentification you only need to add your designs and code, this way you will speed up your developpement process ( i've made for practising purpose, you can use it for your projects if you want to :) )
+A Boilerplate to quickly start your application with React/Redux and Firebase, from the basic connections/CRUD and authentification you only need to add your designs and code, this way you will speed up your developpement process ( i've made this project for practising purpose, you can use it for your projects if you want to :) )
 
 # [Demo](https://github-react-rrdux.firebaseapp.com/signin)
 
