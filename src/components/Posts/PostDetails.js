@@ -12,6 +12,7 @@ const PostDetails = props => {
   if (!auth.uid) return <Redirect to="/signin" />;
   if (post) {
     const id = props.match.params.id;
+    // we will display the deleteBtn and editBtn buttons in case the signed in user own the post
     // you have to use the function bind. Thus, the handler will be triggered only when you click on the delete button
     const deleteBtn = (
       <a

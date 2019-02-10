@@ -9,6 +9,7 @@ import { Redirect } from "react-router-dom";
 class Dashboard extends Component {
   render() {
     const { posts, auth, notifications } = this.props;
+    // if the user is not signed in we will redirect to the sign in page
     if (!auth.uid) return <Redirect to="/signin" />;
 
     return (
@@ -34,6 +35,7 @@ const mapStateToProps = state => {
   };
 };
 
+// getting the posts and notifications collections from the firebase DB using firestoreConnect
 export default compose(
   connect(mapStateToProps),
   firestoreConnect([

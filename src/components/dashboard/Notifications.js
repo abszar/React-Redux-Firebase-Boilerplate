@@ -1,5 +1,6 @@
 import React from "react";
-import moment from "moment";
+import moment from "moment"; // to dispaly the dates with the right format
+
 const Notifications = props => {
   const { notifications } = props;
   return (

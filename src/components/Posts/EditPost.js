@@ -27,6 +27,8 @@ class CreatePost extends Component {
     if (!auth.uid) {
       return <Redirect to="/signin" />;
     } else if (post) {
+      //redirect if the user does not own the post
+      if (auth.uid !== post.authorId) return <Redirect to="/" />;
       return (
         <div className="container z-depth-1">
           <form onSubmit={this.handleSubmit} className="white">
@@ -73,7 +75,7 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
 
   const posts = state.firestore.data.posts;
-  const post = posts ? posts[id] : null;
+  const post = posts ? posts[id] : null; // if we already have the posts from firebase we will select the specific post to edit
   return {
     post: post,
     auth: state.firebase.auth

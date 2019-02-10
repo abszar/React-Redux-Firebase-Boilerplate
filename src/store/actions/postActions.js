@@ -1,3 +1,4 @@
+// redux actions for the posts CRUD functionalities with firebase
 export const createPost = post => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // asyns call

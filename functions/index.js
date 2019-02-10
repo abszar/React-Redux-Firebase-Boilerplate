@@ -6,6 +6,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   response.send("Hello from Firebase!");
 });
 
+// this function is to add to the 'notification' collection in the DB
 const createNotification = notification => {
   return admin
     .firestore()
@@ -14,6 +15,7 @@ const createNotification = notification => {
     .then(doc => console.log("notification added", doc));
 };
 
+//firebase function to make a new post creation notification / after that it will add to the 'notification' collection inside the DB usinf the function above
 exports.postCreated = functions.firestore
   .document("posts/{postId}")
   .onCreate(doc => {
@@ -26,6 +28,7 @@ exports.postCreated = functions.firestore
     return createNotification(notification);
   });
 
+//firebase function to make a new user joining notification / after that it will add to the 'notification' collection inside the DB usinf the function above
 exports.userJoined = functions.auth.user().onCreate(user => {
   return admin
     .firestore()

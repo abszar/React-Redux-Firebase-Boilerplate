@@ -24,6 +24,7 @@ const Navbar = props => {
   );
 };
 
+// getting the auth + profile informations if the user is signed in
 const mapStateToProps = state => {
   return {
     auth: state.firebase.auth,

@@ -1,3 +1,4 @@
+// the main reducer
 import authReducer from "./authReducer";
 import postReducer from "./postReducer";
 import { combineReducers } from "redux";

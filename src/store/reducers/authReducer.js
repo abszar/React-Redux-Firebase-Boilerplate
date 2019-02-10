@@ -1,3 +1,4 @@
+// the reducer get executed after applying an action to update the state and give an error message if its the case
 const initState = {
   authError: null
 };

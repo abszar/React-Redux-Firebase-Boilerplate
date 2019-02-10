@@ -8,17 +8,20 @@ class SignIn extends Component {
     email: "",
     password: ""
   };
+
   handleChange = e => {
     this.setState({
       [e.target.id]: e.target.value
     });
   };
+  // this function will send the submited form to the auth action
   handleSubmit = e => {
     e.preventDefault();
     this.props.signIn(this.state);
   };
   render() {
     const { authError, auth } = this.props;
+    // if there is an already signed in user we will redirect to the main root
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="container shadow-effect">
@@ -53,12 +56,14 @@ class SignIn extends Component {
     );
   }
 }
+//getting the potential login error and the auth information if the user is logged in
 const mapStateToProps = state => {
   return {
     authError: state.auth.authError,
     auth: state.firebase.auth
   };
 };
+//geting the signIn methode from the auth action file
 const mapDispatchToProps = dispatch => {
   return {
     signIn: creds => dispatch(signIn(creds))
