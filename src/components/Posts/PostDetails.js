@@ -33,7 +33,7 @@ const PostDetails = props => {
     );
 
     return (
-      <div className="container section post-details">
+      <div className="container section post-details post-container">
         <div className="card z-depth-0">
           <div className="card-content">
             <span className="card-title">{post.title}</span>
@@ -52,8 +52,8 @@ const PostDetails = props => {
     );
   } else {
     return (
-      <div className="container center">
-        <p>Loading post...</p>
+      <div className="container center post-container">
+        <h4>Loading post...</h4>
       </div>
     );
   }

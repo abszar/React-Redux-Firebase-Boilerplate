@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,900i");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700i");
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e6e6e6;
+  background-color: #ffffff;
 }
 
 form {
@@ -22,37 +22,41 @@ code {
     monospace;
 }
 
-.shadow-effect {
+.card-title {
+  color: #192c4f;
+  font-weight: 700 !important;
+  font-style: italic;
+}
+.blue-grey-text {
+  font-weight: 700 !important;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    left: 20%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+.post-summary,
+.notification,
+.post-container {
   position: relative;
+  margin-top: 30px;
+  -webkit-box-shadow: 0px 0px 30px 5px rgba(227, 227, 227, 1) !important;
+  -moz-box-shadow: 0px 0px 30px 5px rgba(227, 227, 227, 1) !important;
+  box-shadow: 0px 0px 30px 5px rgba(227, 227, 227, 1) !important;
+
+  border-radius: 20px !important;
 }
 
-.shadow-effect:before,
-.shadow-effect:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777;
-  -webkit-box-shadow: 0 15px 10px #777;
-  -moz-box-shadow: 0 15px 10px #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
-  -o-transform: rotate(-3deg);
-  -ms-transform: rotate(-3deg);
-  transform: rotate(-3deg);
-}
-
-.shadow-effect:after {
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-  right: 10px;
-  left: auto;
+nav {
+  position: relative;
+  height: 70px;
+  background-image: linear-gradient(45deg, #fe0685, #f2854e);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  box-shadow: 0 0 0 #777;
 }

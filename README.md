@@ -8,6 +8,9 @@ A Boilerplate to quickly start your application with React/Redux and Firebase, f
 
 # [Demo](https://github-react-rrdux.firebaseapp.com/signin)
 
+login : demo@test.com
+password : demo123
+
 ## Quick Start
 
 ```shell
