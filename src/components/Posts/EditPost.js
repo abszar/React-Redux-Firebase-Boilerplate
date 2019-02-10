@@ -7,8 +7,8 @@ import { firestoreConnect } from "react-redux-firebase";
 
 class CreatePost extends Component {
   state = {
-    title: this.props.title ? this.props.title : "",
-    content: this.props.content ? this.props.content.id : ""
+    title: "",
+    content: ""
   };
   handleChange = e => {
     this.setState({
@@ -21,14 +21,6 @@ class CreatePost extends Component {
     this.props.editPost(id, this.state);
     this.props.history.push("/");
   };
-
-  static getDerivedStateFromProps(nextProps, state) {
-    const { post } = nextProps;
-    return {
-      title: post ? post.title : "",
-      content: post ? post.content : ""
-    };
-  }
 
   render() {
     const { post, auth } = this.props;
@@ -46,7 +38,7 @@ class CreatePost extends Component {
               <input
                 type="text"
                 id="title"
-                value={this.state.title}
+                defaultValue={post.title}
                 onChange={this.handleChange}
               />
             </div>
@@ -56,7 +48,7 @@ class CreatePost extends Component {
               </label>
               <textarea
                 id="content"
-                value={this.state.content}
+                defaultValue={post.content}
                 className="materialize-textarea "
                 onChange={this.handleChange}
               />
