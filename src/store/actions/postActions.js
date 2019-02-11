@@ -44,6 +44,7 @@ export const deletePost = (id, history) => {
 export const editPost = (id, post, history) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // asyns call
+    Object.keys(post).forEach(key => post[key] === "" && delete post[key]); // testing there is an empty key (title or content) this mean the field was not updated, thus it's empty
     const firestore = getFirestore();
     firestore
       .collection("posts")
