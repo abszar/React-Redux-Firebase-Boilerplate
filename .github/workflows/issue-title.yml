@@ -1,0 +1,28 @@
+name: Prefix Issue Title
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-prefix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update issue title with prefix
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { issue } = context.payload;
+            const issueNumber = issue.number;
+            const oldTitle = issue.title;
+            const prefix = `ISS${issueNumber}: `;
+            // Only update if not already prefixed.
+            if (!oldTitle.startsWith(prefix)) {
+              const newTitle = prefix + oldTitle;
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                title: newTitle
+              });
+            }
