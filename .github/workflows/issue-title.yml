@@ -15,7 +15,7 @@ jobs:
             const { issue } = context.payload;
             const issueNumber = issue.number;
             const oldTitle = issue.title;
-            const prefix = `ISS${issueNumber}: `;
+            const prefix = `ISSUE-${issueNumber}: `;
             // Only update if not already prefixed.
             if (!oldTitle.startsWith(prefix)) {
               const newTitle = prefix + oldTitle;
